@@ -1,0 +1,11 @@
+{
+  "name": "Autossh",
+  "version": "1.0.6",
+  "slug": "autossh",
+  "description": "Create SSH tunnel to public server",
+  "url": "https://github.com/nazt/hassio-autossh/tree/master/autossh",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "startup": "system",
+  "boot": "auto",
+  "host_network": true
+}
