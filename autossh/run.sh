@@ -22,6 +22,7 @@ DAEMON_ARGS=" $AUTOSSH_ARGS $SSH_ARGS"
 
 echo "#!/usr/bin/env bashio" > go.sh
 echo "autossh" "$DAEMON_ARGS" >> go.sh
+cat go.sh
 chmod +x ./go.sh
 
 ./go.sh
