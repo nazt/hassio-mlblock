@@ -9,8 +9,8 @@ cat /root/.ssh/id_rsa.pub
 
 TUNNEL_HOST=reverse-proxy.archtomation.com
 TUNNEL_USER=device
-TUNNEL_PORT=48000
-MONITOR_PORT=48001
+TUNNEL_PORT=55001
+MONITOR_PORT=66001
 KEY_PATH=/root/.ssh/id_rsa.pub
 
 
@@ -20,4 +20,8 @@ SSH_ARGS="-nNTv -o ServerAliveInterval=60 -o ServerAliveCountMax=3 -o Identities
 
 DAEMON_ARGS=" $AUTOSSH_ARGS $SSH_ARGS"
 
-which autossh
+echo "#!/usr/bin/env bashio" > go.sh
+echo "autossh" "$DAEMON_ARGS" >> go.sh
+chmod +x ./go.sh
+
+./go.sh
