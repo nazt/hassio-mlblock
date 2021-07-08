@@ -6,3 +6,18 @@ set -e
 bashio::log.info "Public key:"
 
 cat /root/.ssh/id_rsa.pub
+
+TUNNEL_HOST=reverse-proxy.archtomation.com
+TUNNEL_USER=device
+TUNNEL_PORT=48000
+MONITOR_PORT=48001
+KEY_PATH=/root/.ssh/id_rsa.pub
+
+
+AUTOSSH_ARGS="-M $MONITOR_PORT -f"
+SSH_ARGS="-nNTv -o ServerAliveInterval=60 -o ServerAliveCountMax=3 -o IdentitiesOnly=yes -o StrictHostKeyChecking=no \
+	         -i $KEY_PATH -R $TUNNEL_PORT:localhost:8123 $TUNNEL_USER@$TUNNEL_HOST"
+
+DAEMON_ARGS=" $AUTOSSH_ARGS $SSH_ARGS"
+
+which autossh
