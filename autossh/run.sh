@@ -21,7 +21,7 @@ SSH_ARGS="-nNTv -o ServerAliveInterval=60 -o ServerAliveCountMax=3 -o Identities
 DAEMON_ARGS=" $AUTOSSH_ARGS $SSH_ARGS"
 
 echo "#!/usr/bin/env bashio" > go.sh
-echo "autossh" "$DAEMON_ARGS" >> go.sh
+echo "AUTOSSH_DEBUG=1 autossh" "$DAEMON_ARGS" >> go.sh
 cat go.sh
 chmod +x ./go.sh
 
