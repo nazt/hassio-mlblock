@@ -10,7 +10,7 @@ cat /root/.ssh/id_rsa.pub
 TUNNEL_HOST=reverse-proxy.archtomation.com
 TUNNEL_USER=device
 TUNNEL_PORT=55001
-MONITOR_PORT=66001
+MONITOR_PORT=56001
 KEY_PATH=/root/.ssh/id_rsa.pub
 
 
