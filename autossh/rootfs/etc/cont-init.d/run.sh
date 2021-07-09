@@ -2,16 +2,16 @@
 set -e
 
 declare remote_string
-
 # https://github.com/hassio-addons/bashio
 
 bashio::log.info "Public key:"
 
-cat /root/.ssh/id_rsa.pub
+cp -Rv /ssl/.ssh/archtomation_rsa /root/.ssh/id_rsa
+cp -Rv /ssl/.ssh/archtomation_rsa.pub /root/.ssh/id_rsa.pub
 
 TUNNEL_HOST=$(bashio::config 'tunnel_host')
 TUNNEL_USER=device
-TUNNEL_PORT=55001
+# TUNNEL_PORT=55001
 MONITOR_PORT=0
 KEY_PATH=/root/.ssh/id_rsa
 # TUNNEL_REMOTE_STRING=$(bashio::config 'tunnel_remote_string')
