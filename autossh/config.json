@@ -1,7 +1,9 @@
 {
   "name": "Autossh",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "slug": "autossh",
+  "ingress": true,
+  "ingress_port": 0,
   "description": "Create SSH tunnel to public server",
   "url": "https://github.com/nazt/hassio-autossh/tree/master/autossh",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
