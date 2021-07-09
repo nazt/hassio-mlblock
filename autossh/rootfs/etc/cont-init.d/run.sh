@@ -17,7 +17,7 @@ KEY_PATH=/root/.ssh/id_rsa
 # TUNNEL_REMOTE_STRING=$(bashio::config 'tunnel_remote_string')
 
 
-echo "#!/usr/bin/env bashio" > go.sh
+echo "#!/usr/bin/env bashio" > /tmp/go.sh
 # echo "AUTOSSH_DEBUG=1 autossh" "$DAEMON_ARGS" >> go.sh
 
 # Set username and password for the broker
@@ -33,7 +33,7 @@ for remote in $(bashio::config 'tunnel_remotes|keys'); do
   AUTOSSH_ARGS="-M $MONITOR_PORT -f "
   SSH_ARGS="-nNTv -o ServerAliveInterval=60 -o ServerAliveCountMax=3 -o IdentitiesOnly=yes -o StrictHostKeyChecking=no -i $KEY_PATH -R $TUNNEL_REMOTE_STRING $TUNNEL_USER@$TUNNEL_HOST"
   DAEMON_ARGS=" $AUTOSSH_ARGS $SSH_ARGS"
-  echo "AUTOSSH_DEBUG=1 autossh" "$DAEMON_ARGS" >> go.sh
+  echo "AUTOSSH_DEBUG=1 autossh" "$DAEMON_ARGS" >> /tmp/go.sh
 #   password=$(np -p "${password}")
 #   echo "${username}:${password}" >> "${PW}"
 #   echo "user ${username}" >> "${ACL}"
@@ -41,8 +41,8 @@ done
 
 
 
-cat go.sh
-chmod +x ./go.sh
+cat /tmp/go.sh
+chmod +x /tmp/go.sh
 # ./go.sh
 
 # bashio::log.info "Starting NGinx server..."
