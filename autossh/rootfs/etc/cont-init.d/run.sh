@@ -6,6 +6,7 @@ declare remote_string
 
 bashio::log.info "Public key:"
 
+mkdir -p /root/.ssh
 cp -Rv /ssl/.ssh/archtomation_rsa /root/.ssh/id_rsa
 cp -Rv /ssl/.ssh/archtomation_rsa.pub /root/.ssh/id_rsa.pub
 
