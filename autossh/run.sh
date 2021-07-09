@@ -30,11 +30,11 @@ for remote in $(bashio::config 'tunnel_remotes|keys'); do
 #   password=$(bashio::config "tunnel_remotes[${remote}].password")
 
   bashio::log.info "GOT Remote: ${TUNNEL_REMOTE_STRING}"
-  AUTOSSH_ARGS="-M $MONITOR_PORT -f "
+  AUTOSSH_ARGS="-M $MONITOR_PORT "
 #   TUNNEL_REMOTE_STRING=$(bashio::config 'tunnel_remote_string')
   SSH_ARGS="-nNTv -o ServerAliveInterval=60 -o ServerAliveCountMax=3 -o IdentitiesOnly=yes -o StrictHostKeyChecking=no -i $KEY_PATH -R $TUNNEL_REMOTE_STRING $TUNNEL_USER@$TUNNEL_HOST"
   DAEMON_ARGS=" $AUTOSSH_ARGS $SSH_ARGS"
-  echo "AUTOSSH_DEBUG=1 autossh" "$DAEMON_ARGS" >> go.sh
+  echo "AUTOSSH_DEBUG=1 autossh" "$DAEMON_ARGS" "&" >> go.sh
 
 #   password=$(np -p "${password}")
 #   echo "${username}:${password}" >> "${PW}"
