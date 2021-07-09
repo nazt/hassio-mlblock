@@ -2,5 +2,5 @@
 
 bashio::log.info "Starting autossh server..."
 exec /tmp/go.sh
-
+bashio::log.info "Starting nginx"
 exec nginx
