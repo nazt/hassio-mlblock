@@ -1,6 +1,8 @@
 #!/usr/bin/env bashio
 set -e
 
+declare remote_string
+
 # https://github.com/hassio-addons/bashio
 
 bashio::log.info "Public key:"
@@ -21,6 +23,7 @@ DAEMON_ARGS=" $AUTOSSH_ARGS $SSH_ARGS"
 
 # Set username and password for the broker
 for remote in $(bashio::config 'tunnel_remotes|keys'); do
+  bashio::log.info "Remote: ${remote}"
   bashio::config.require.remote_string "tunnel_remotes[${remote}].remote_string"
 #   bashio::config.require.password "tunnel_remotes[${remote}].password"
   remote_string=$(bashio::config "tunnel_remotes[${remote}].remote_string")
