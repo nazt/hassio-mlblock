@@ -29,7 +29,7 @@ for remote in $(bashio::config 'tunnel_remotes|keys'); do
   TUNNEL_REMOTE_STRING=$(bashio::config "tunnel_remotes[${remote}].remote_string")
 #   password=$(bashio::config "tunnel_remotes[${remote}].password")
 
-  bashio::log.info "GOT Remote: ${TUNNEL_REMOTE_STRING}"
+  bashio::log.info "${TUNNEL_REMOTE_STRING}"
   AUTOSSH_ARGS="-M $MONITOR_PORT -f "
   SSH_ARGS="-nNTv -o ServerAliveInterval=60 -o ServerAliveCountMax=3 -o IdentitiesOnly=yes -o StrictHostKeyChecking=no -i $KEY_PATH -R $TUNNEL_REMOTE_STRING $TUNNEL_USER@$TUNNEL_HOST"
   DAEMON_ARGS=" $AUTOSSH_ARGS $SSH_ARGS"
@@ -43,7 +43,7 @@ done
 
 cat go.sh
 chmod +x ./go.sh
-./go.sh
+# ./go.sh
 
-bashio::log.info "Starting NGinx server..."
-nginx
+# bashio::log.info "Starting NGinx server..."
+# nginx

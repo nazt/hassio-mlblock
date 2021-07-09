@@ -3,6 +3,7 @@ FROM $BUILD_FROM
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+COPY rootfs /
 
 RUN apk add --no-cache  \
         openssh autossh nginx
