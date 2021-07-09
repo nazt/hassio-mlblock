@@ -1,6 +1,6 @@
 {
   "name": "Autossh",
-  "version": "1.0.9",
+  "version": "1.0.1",
   "slug": "autossh",
   "description": "Create SSH tunnel to public server",
   "url": "https://github.com/nazt/hassio-autossh/tree/master/autossh",
@@ -10,14 +10,11 @@
   "host_network": true,
   "map": ["config:rw", "ssl"],
   "options": {
-    "ssl": true,
-    "certfile": "fullchain.pem",
-    "keyfile": "privkey.pem"
+    "tunnel_host": "",
+    "tunnel_remote_string": "$TUNNEL_PORT:localhost:8123"
   },
   "schema": {
-    "log_level": "list(trace|debug|info|notice|warning|error|fatal)?",
-    "ssl": "bool",
-    "certfile": "str",
-    "keyfile": "str"
+    "tunnel_host": "str",
+    "tunnel_remote_string": "str"
   }
 }
