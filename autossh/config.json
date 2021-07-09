@@ -1,6 +1,6 @@
 {
   "name": "Autossh",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "slug": "autossh",
   "ingress": true,
   "ingress_port": 0,
