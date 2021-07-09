@@ -1,6 +1,6 @@
 {
   "name": "Autossh",
-  "version": "2.0.1",
+  "version": "2.0.0",
   "slug": "autossh",
   "description": "Create SSH tunnel to public server",
   "url": "https://github.com/nazt/hassio-autossh/tree/master/autossh",
