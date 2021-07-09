@@ -5,8 +5,7 @@ FROM $BUILD_FROM
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 RUN apk add --no-cache  \
-        openssh autossh \
-        nginx=1.18.0-r13
+        openssh autossh nginx
 
 RUN ssh-keygen -b 2048 -t rsa -f /root/.ssh/id_rsa -q -N ""
 
