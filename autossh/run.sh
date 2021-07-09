@@ -15,9 +15,7 @@ KEY_PATH=/root/.ssh/id_rsa
 
 
 AUTOSSH_ARGS="-M $MONITOR_PORT "
-SSH_ARGS="-nNTv -o ServerAliveInterval=60 -o ServerAliveCountMax=3 -o IdentitiesOnly=yes -o StrictHostKeyChecking=no \
-	         -i $KEY_PATH -R $TUNNEL_PORT:localhost:8123 $TUNNEL_USER@$TUNNEL_HOST"
-
+SSH_ARGS="-nNTv -o ServerAliveInterval=60 -o ServerAliveCountMax=3 -o IdentitiesOnly=yes -o StrictHostKeyChecking=no -i $KEY_PATH -R $TUNNEL_PORT:localhost:8123 $TUNNEL_USER@$TUNNEL_HOST"
 DAEMON_ARGS=" $AUTOSSH_ARGS $SSH_ARGS"
 
 echo "#!/usr/bin/env bashio" > go.sh
