@@ -29,7 +29,7 @@ for remote in $(bashio::config 'tunnel_remotes|keys'); do
 #   password=$(bashio::config "tunnel_remotes[${remote}].password")
 
   bashio::log.info "${TUNNEL_REMOTE_STRING}"
-  AUTOSSH_ARGS="-M $MONITOR_PORT -f "
+  AUTOSSH_ARGS="-M $MONITOR_PORT "
   SSH_ARGS="-nNTv -o ServerAliveInterval=60 -o ServerAliveCountMax=3 -o IdentitiesOnly=yes -o StrictHostKeyChecking=no -i $KEY_PATH -R $TUNNEL_REMOTE_STRING $TUNNEL_USER@$TUNNEL_HOST"
   DAEMON_ARGS=" $AUTOSSH_ARGS $SSH_ARGS"
   echo "#!/usr/bin/env bashio" > "/tmp/autossh_$remote.sh"
