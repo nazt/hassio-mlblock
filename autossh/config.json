@@ -1,6 +1,6 @@
 {
   "name": "Autossh",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "slug": "autossh",
   "description": "Create SSH tunnel to public server",
   "url": "https://github.com/nazt/hassio-autossh/tree/master/autossh",
@@ -11,10 +11,14 @@
   "map": ["config:rw", "ssl"],
   "options": {
     "tunnel_host": "",
-    "tunnel_remote_string": "$TUNNEL_PORT:localhost:8123"
+    "tunnel_remotes": []
   },
   "schema": {
     "tunnel_host": "str",
-    "tunnel_remote_string": "str"
+    "tunnel_remotes": [
+      {
+        "tunnel_string": "str"
+      }
+    ]
   }
 }
