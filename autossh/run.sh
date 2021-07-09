@@ -46,4 +46,4 @@ chmod +x ./go.sh
 ./go.sh
 
 bashio::log.info "Starting NGinx server..."
-exec nginx
+nginx
