@@ -18,7 +18,7 @@ KEY_PATH=/root/.ssh/id_rsa
 
 
 echo "#!/usr/bin/env bashio" > go.sh
-echo "AUTOSSH_DEBUG=1 autossh" "$DAEMON_ARGS" >> go.sh
+# echo "AUTOSSH_DEBUG=1 autossh" "$DAEMON_ARGS" >> go.sh
 
 # Set username and password for the broker
 for remote in $(bashio::config 'tunnel_remotes|keys'); do
