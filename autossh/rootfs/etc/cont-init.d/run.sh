@@ -13,7 +13,7 @@ cp -Rv /ssl/.ssh/archtomation_rsa.pub /root/.ssh/id_rsa.pub
 TUNNEL_HOST=$(bashio::config 'tunnel_host')
 TUNNEL_USER=device
 # TUNNEL_PORT=55001
-MONITOR_PORT=0
+MONITOR_PORT=2000
 KEY_PATH=/root/.ssh/id_rsa
 # TUNNEL_REMOTE_STRING=$(bashio::config 'tunnel_remote_string')
 
