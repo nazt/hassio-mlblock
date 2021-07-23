@@ -9,3 +9,4 @@ bashio::log.info "Starting autossh server..."
 cat /root/.ssh/id_rsa.pub
 bashio::log.info "Starting nginx"
 exec nginx
+sleep 99999999999

@@ -13,7 +13,7 @@ cp -Rv /ssl/.ssh/archtomation_rsa.pub /root/.ssh/id_rsa.pub
 TUNNEL_HOST=$(bashio::config 'tunnel_host')
 TUNNEL_USER=device
 # TUNNEL_PORT=55001
-MONITOR_PORT=2000
+MONITOR_PORT=20000
 KEY_PATH=/root/.ssh/id_rsa
 # TUNNEL_REMOTE_STRING=$(bashio::config 'tunnel_remote_string')
 
@@ -31,10 +31,10 @@ for remote in $(bashio::config 'tunnel_remotes|keys'); do
 #   password=$(bashio::config "tunnel_remotes[${remote}].password")
 
   bashio::log.info "${TUNNEL_REMOTE_STRING}"
-  AUTOSSH_ARGS="-M $MONITOR_PORT -f "
+  AUTOSSH_ARGS="-M $MONITOR_PORT "
   SSH_ARGS="-nNTv -o ServerAliveInterval=60 -o ServerAliveCountMax=3 -o IdentitiesOnly=yes -o StrictHostKeyChecking=no -i $KEY_PATH -R $TUNNEL_REMOTE_STRING $TUNNEL_USER@$TUNNEL_HOST"
   DAEMON_ARGS=" $AUTOSSH_ARGS $SSH_ARGS"
-  echo "AUTOSSH_DEBUG=1 autossh" "$DAEMON_ARGS" >> /tmp/go.sh
+  echo "AUTOSSH_GATETIME=0 AUTOSSH_DEBUG=1 autossh" "$DAEMON_ARGS" "&" >> /tmp/go.sh
 #   password=$(np -p "${password}")
 #   echo "${username}:${password}" >> "${PW}"
 #   echo "user ${username}" >> "${ACL}"
