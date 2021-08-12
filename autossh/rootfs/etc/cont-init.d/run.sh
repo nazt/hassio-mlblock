@@ -35,13 +35,14 @@ for remote in $(bashio::config 'tunnel_remotes|keys'); do
   SSH_ARGS="-nNTv -o ServerAliveInterval=60 -o ServerAliveCountMax=3 -o IdentitiesOnly=yes -o StrictHostKeyChecking=no -i $KEY_PATH -R $TUNNEL_REMOTE_STRING $TUNNEL_USER@$TUNNEL_HOST"
   DAEMON_ARGS=" $AUTOSSH_ARGS $SSH_ARGS"
   echo "AUTOSSH_GATETIME=0 AUTOSSH_DEBUG=1 autossh" "$DAEMON_ARGS" "&" >> /tmp/go.sh
+  echo "sleep 9" >> /tmp/go.sh
 #   password=$(np -p "${password}")
 #   echo "${username}:${password}" >> "${PW}"
 #   echo "user ${username}" >> "${ACL}"
 done
 
 
-
+echo "Ready to go.sh"
 cat /tmp/go.sh
 chmod +x /tmp/go.sh
 # ./go.sh
