@@ -1,6 +1,6 @@
 {
   "name": "mlblock",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "slug": "mlblock",
   "ingress": true,
   "ingress_port": 80,

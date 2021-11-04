@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bashio
 
 bashio::log.info "Starting autossh server..."
-/tmp/go.sh
+# /tmp/go.sh
 # /tmp/go.shv
 # /tmp/autossh_0.sh&
 # /tmp/autossh_1.sh&
