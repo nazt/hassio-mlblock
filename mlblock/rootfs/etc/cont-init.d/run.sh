@@ -45,5 +45,6 @@ declare remote_string
 # chmod +x /tmp/go.sh
 # ./go.sh
 
+cat /etc/nginx/servers/direct.conf
 bashio::log.info "Starting NGinx server..."
 nginx

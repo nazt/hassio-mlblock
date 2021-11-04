@@ -3,7 +3,7 @@
   "version": "2.0.8",
   "slug": "mlblock",
   "ingress": true,
-  "ingress_port": 80,
+  "ingress_port": 8099,
   "description": "MLBlock",
   "url": "https://github.com/nazt/hassio-mlblock/tree/master/mlblock",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
@@ -12,15 +12,9 @@
   "host_network": true,
   "map": ["config:rw", "ssl"],
   "options": {
-    "tunnel_host": "",
-    "tunnel_remotes": []
+    "tunnel_host": ""
   },
   "schema": {
-    "tunnel_host": "str",
-    "tunnel_remotes": [
-      {
-        "remote_string": "str"
-      }
-    ]
+    "tunnel_host": "str"
   }
 }
